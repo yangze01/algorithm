@@ -1,0 +1,4 @@
+/media/john/A414FDC314FD990E/Users/john/Desktop/algorithm/c++LeetCode/main.cpp: In function ‘int main()’:
+/media/john/A414FDC314FD990E/Users/john/Desktop/algorithm/c++LeetCode/main.cpp:15:20: error: ‘class Solution’ has no member named ‘threeSumClosest’
+     cout<<solution.threeSumClosest(test,0);
+                    ^
