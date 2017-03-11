@@ -17,7 +17,6 @@ private:
     void recursion(vector<string> &res, int left, int right, string tmp){
         if(left == 0 && right == 0){
             res.push_back(tmp);
-            res.erase()
         }
         if(left > 0){
             recursion(res, left-1, right, tmp + '(');
