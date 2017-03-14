@@ -1,78 +1,65 @@
-#include<iostream>
-#include<vector>
-#include<algorithm>
-#include<typeinfo>
+#include <iostream>
 using namespace std;
-
+struct ListNode {
+  int val;
+  ListNode *next;
+  ListNode(int x) : val(x), next(NULL) {}
+};
 class Solution {
 public:
-    vector<vector<int>> fourSum(vector<int>& nums, int target) {
-        sort(nums.begin(),nums.end());
-        vector<vector<int>> ret = {};
-        if(nums.size()<4){
-            return ret;
-        }
-        for(auto i = nums.begin();i != nums.end()-3;i++){
-            if(i != nums.begin() && *i == *(i-1)){
-                continue;
-            }
-            for(auto j = i +1; j != nums.end()-2;j++){
-                if(j != i+1 && *j == *(j-1)){
-                    continue;
-                }
-                auto left = j+1;
-                auto right = nums.end()-1;
-                while(left<right){
-                    //cout<<"i:"<<*i<<"    j:"<<*j<<"    left:"<<*left<<"    right:"<<*right<<endl;
-                    int sum = *i + *j + *left + *right;
-                    if(sum == target){
-                    //cout<<"i:"<<*i<<"j:"<<*j<<"left:"<<*left<<"right:"<<*right<<endl;
-                    vector<int> tmp;
-                    tmp.push_back(*i);
-                    tmp.push_back(*j);
-                    tmp.push_back(*left);
-                    tmp.push_back(*right);
-                    ret.push_back(tmp);
-                    left++;
-                    right--;
-             /**    while (left < right && *left == *(left-1)) left++;
-                    while (left < right && *right == *(right+1)) right--;
-             **/   }
-                    else if(sum > target){
-                        right--;
-                    }
-                    else{
-                        left++;
-                    }
-                }
-            }
-        }
-        return ret;
-
+  void travelList(ListNode *head) {
+    ListNode *pNode = head;
+    if (pNode == NULL) {
+      cout << endl;
+    } else {
+      cout << pNode->val;
+      pNode = pNode->next;
+      while (pNode != NULL) {
+        cout << "->" << pNode->val;
+        pNode = pNode->next;
+      }
     }
+    cout << endl;
+  }
+  ListNode *reverse_List(ListNode *head) {
+    ListNode *res = new ListNode(0);
+    res->next = head;
+    ListNode *pre = res;
+    ListNode *cur = head;
+    while (cur->next != NULL) {
+      ListNode *tmp = pre->next;
+      pre->next = cur->next;
+      cur->next = cur->next->next;
+      pre->next->next = tmp;
+    }
+    return res->next;
+  }
+  ListNode *reverseKGroup(ListNode *head, int k) {
+    ListNode *res = new ListNode(0);
+    res->next = head;
+    head = res;
+    while (head->next != NULL) {
+      head = reverseKNodes(head, k);
+    }
+    return res->next;
+  }
+  ListNode *reverseKNodes(ListNode *head, int k) {}
 };
-int main(){
-    vector<int> test = {-5,5,4,-3,0,0,4,-2};
-    Solution solution = Solution();
-    vector<vector<int>> ttt = solution.fourSum(test,4);
-    cout<<"[";
-    for(auto i = ttt.begin();i != ttt.end();i++){
-        cout<<"[";
-        vector<int> j = *i;
-        for(auto k = j.begin();k != j.end();k++){
-            if(k == j.end()-1){
-                cout<<*k;
-            }
-            else{
-                cout<<*k<<",";
-            }
-        }
-        if(i == ttt.end()-1){
-            cout<<"]";
-        }
-        else{
-            cout<<"],";
-        }
-    }
-    cout<<"]";
+
+void createList(ListNode *pHead) {
+  ListNode *p = pHead;
+  for (int i = 2; i <= 10; i++) {
+    ListNode *pNewNode = new ListNode(i);
+    p->next = pNewNode;
+    p = pNewNode;
+  }
+}
+
+int main() {
+  Solution solution = Solution();
+  ListNode *head1 = new ListNode(1);
+  createList(head1);
+  solution.travelList(head1);
+  // ListNode* rhead = solution.reverseKNodes(head1,3);
+  // solution.travelList(rhead);
 }

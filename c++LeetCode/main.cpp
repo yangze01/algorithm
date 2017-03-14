@@ -1,39 +1,84 @@
 #include <iostream>
-#include <vector>
 using namespace std;
+struct ListNode {
+  int val;
+  ListNode *next;
+  ListNode(int x) : val(x), next(NULL) {}
+};
 class Solution {
 public:
-    vector<string> generateParenthesis(int n) {
-        vector<string> res ={};
-        if(n == 0){
-            return res;
-        }
-        int left = n;
-        int right = n;
-        recursion(res, left, right, "");
-        return res;
+  void travelList(ListNode *head) {
+    ListNode *pNode = head;
+    if (pNode == NULL) {
+      cout << endl;
+    } else {
+      cout << pNode->val;
+      pNode = pNode->next;
+      while (pNode != NULL) {
+        cout << "->" << pNode->val;
+        pNode = pNode->next;
+      }
     }
-private:
-    void recursion(vector<string> &res, int left, int right, string tmp){
-        if(left == 0 && right == 0){
-            res.push_back(tmp);
-            res.erase()
-        }
-        if(left > 0){
-            recursion(res, left-1, right, tmp + '(');
-        }
-        if(right > 0 && left < right){
-            recursion(res, left, right-1, tmp + ')');
-        }
-    }
-};
-int main(){
-    Solution solution = Solution();
-    vector<string> ret = solution.generateParenthesis(3);
-    cout<<'[';
-    for(auto s:ret){
-        cout<<s<<endl;
-    }
-    cout<<']'<<endl;
+    cout << endl;
+  }
 
+  ListNode *reverseKGroup(ListNode *head, int k) {
+    ListNode *res = new ListNode(0);
+    res->next = head;
+    head = res;
+    while (head->next != NULL) {
+      head = reverseKNodes(head, k);
+    }
+    return res->next;
+  }
+  ListNode *reverseKNodes(ListNode* head, int k) {
+    ListNode* node = head;
+    for(int i = 0; i <k; i++){
+        if(node->next == NULL){
+            return node;
+        }
+        node = node->next;
+    }
+    ListNode* pre = head;
+    ListNode* cur = pre->next;
+    while(pre->next != node){
+        ListNode* tmp = pre->next;
+        pre->next = cur->next;
+        cur->next = cur->next->next;
+        pre->next->next = tmp;
+    }
+    return cur;
+  }
+
+  ListNode *reverse_List(ListNode *head) {
+    ListNode *res = new ListNode(0);
+    res->next = head;
+    ListNode *pre = res;
+    ListNode *cur = head;
+    while (cur->next != NULL) {
+      ListNode *tmp = pre->next;
+      pre->next = cur->next;
+      cur->next = cur->next->next;
+      pre->next->next = tmp;
+    }
+    return res->next;
+  }
+};
+
+void createList(ListNode *pHead) {
+  ListNode *p = pHead;
+  for (int i = 2; i <= 10; i++) {
+    ListNode *pNewNode = new ListNode(i);
+    p->next = pNewNode;
+    p = pNewNode;
+  }
+}
+
+int main() {
+  Solution solution = Solution();
+  ListNode *head1 = new ListNode(1);
+  createList(head1);
+  solution.travelList(head1);
+  ListNode* rhead = solution.reverseKGroup(head1,3);
+  solution.travelList(rhead);
 }
