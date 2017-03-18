@@ -17,7 +17,7 @@ Merge k sorted linked lists and return it as one sorted list. Analyze and descri
 　　k=2，即合并1，2链表，遍历n+n次，2n
 　　k=3, 合并1,2和3，链表，遍历n+n+n次,3n
 合并第(k-1)和第k个链表，遍历kn次,所以总共需要遍历$n*(2+3+...+k)$次，即$\frac{n*(k^2+k-2)}{3}$次，时间复杂度为$O(n*k^2)$，代码如下：
-```
+```cpp
 class Solution {
 public:
   ListNode *mergeKLists(vector<ListNode *> &lists) {
@@ -55,7 +55,7 @@ public:
 ## 算法2(divided and conquer)
 思路：利用分治法的思想，假设一共有k个待合并链表，链表的平均长度为n，合并k个问题转换为合并两个$\frac{k}{2}$个链表的合并，链表长度不断增加，$n \rightarrow kn$，第k次合并需要$n*2^k$次遍历，所以总的时间复杂度为O(nklogk)。
 一个取巧的算法，用同一个List进行分治：
-```
+```cpp
 class Solution {
 public:
     ListNode* mergeKLists(vector<ListNode*>& lists) {
