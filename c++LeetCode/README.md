@@ -121,7 +121,7 @@ c++中优先队列的定义为：
 **时间复杂度：**
 建堆的时间复杂度是$\frac{k}{2}*logk$,每次去除堆顶再加入的时间复杂度为$logk$,一共需要n(k-1)次，时间复杂度为$O(nklogk)$
 #### priority_queue方法，只能获得最顶部的元素
-```
+```c++
 struct compare{
 	bool operator()(const ListNode *l, const ListNode* r){
 		return l->val > r->val;
@@ -148,7 +148,7 @@ ListNode* mergeLists(vector<ListNode*> &lists){
 }
 ```
 #### make_headp方法，可以访问所有元素
-```
+```c++
 static bool heapComp(ListNode* a, ListNode* b){
 	return a->val > b->val;
 }
