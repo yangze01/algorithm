@@ -101,18 +101,18 @@ public:
 ##算法3 (Priority_queue)
 在介绍算法3之前，先说明要用到的一些数据结构
 ### 堆
-<center>   18
+				   18
 				  /	\
 				 10	 16
 				/ \   / \
 				9  5  8  12
-</center>
-<center> 18, 10, 16, 9, 5, 8, 12</center>
+
+ 18, 10, 16, 9, 5, 8, 12
 上图是大根堆，即根节点比子节点的值都大，对应的小根堆为根节点比子节点的值都小。
 ### 优先队列
 优先队列是队列的一种，优先队列默认使用大根堆，即值最大的优先级最高。
 c++中优先队列的定义为：
-<center>```priority_queue<Type,Container,Functional>```</center>
+> priority_queue<Type,Container,Functional>
 分别代表数据类型(Type)，保存数据的容器(Container)，比较函数的定义(Functional)
 比较函数用来决定优先次序，默认为<，即最大值在顶端
 ### 算法实现
@@ -121,7 +121,9 @@ c++中优先队列的定义为：
 **时间复杂度：**
 建堆的时间复杂度是$\frac{k}{2}*logk$,每次去除堆顶再加入的时间复杂度为$logk$,一共需要n(k-1)次，时间复杂度为$O(nklogk)$
 #### priority_queue方法，只能获得最顶部的元素
-```c++
+
+```cpp
+
 struct compare{
 	bool operator()(const ListNode *l, const ListNode* r){
 		return l->val > r->val;
@@ -147,8 +149,9 @@ ListNode* mergeLists(vector<ListNode*> &lists){
 	return result;
 }
 ```
+
 #### make_headp方法，可以访问所有元素
-```c++
+```cpp
 static bool heapComp(ListNode* a, ListNode* b){
 	return a->val > b->val;
 }
