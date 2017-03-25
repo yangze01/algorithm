@@ -17,7 +17,7 @@ Merge k sorted linked lists and return it as one sorted list. Analyze and descri
 　　k=2，即合并1，2链表，遍历n+n次，2n
 　　k=3, 合并1,2和3，链表，遍历n+n+n次,3n
 合并第(k-1)和第k个链表，遍历kn次,所以总共需要遍历$n*(2+3+...+k)$次，即$\frac{n*(k^2+k-2)}{3}$次，时间复杂度为$O(n*k^2)$，代码如下：
-```
+```cpp
 class Solution {
 public:
   ListNode *mergeKLists(vector<ListNode *> &lists) {
@@ -55,7 +55,7 @@ public:
 ## 算法2(divided and conquer)
 思路：利用分治法的思想，假设一共有k个待合并链表，链表的平均长度为n，合并k个问题转换为合并两个$\frac{k}{2}$个链表的合并，链表长度不断增加，$n \rightarrow kn$，第k次合并需要$n*2^k$次遍历，所以总的时间复杂度为O(nklogk)。
 一个取巧的算法，用同一个List进行分治：
-```
+```cpp
 class Solution {
 public:
     ListNode* mergeKLists(vector<ListNode*>& lists) {
@@ -101,18 +101,18 @@ public:
 ##算法3 (Priority_queue)
 在介绍算法3之前，先说明要用到的一些数据结构
 ### 堆
-<center>   18
+				   18
 				  /	\
 				 10	 16
 				/ \   / \
 				9  5  8  12
-</center>
-<center> 18, 10, 16, 9, 5, 8, 12</center>
+
+ 18, 10, 16, 9, 5, 8, 12
 上图是大根堆，即根节点比子节点的值都大，对应的小根堆为根节点比子节点的值都小。
 ### 优先队列
 优先队列是队列的一种，优先队列默认使用大根堆，即值最大的优先级最高。
 c++中优先队列的定义为：
-<center>```priority_queue<Type,Container,Functional>```</center>
+> priority_queue<Type,Container,Functional>
 分别代表数据类型(Type)，保存数据的容器(Container)，比较函数的定义(Functional)
 比较函数用来决定优先次序，默认为<，即最大值在顶端
 ### 算法实现
@@ -121,7 +121,9 @@ c++中优先队列的定义为：
 **时间复杂度：**
 建堆的时间复杂度是$\frac{k}{2}*logk$,每次去除堆顶再加入的时间复杂度为$logk$,一共需要n(k-1)次，时间复杂度为$O(nklogk)$
 #### priority_queue方法，只能获得最顶部的元素
-```
+
+```cpp
+
 struct compare{
 	bool operator()(const ListNode *l, const ListNode* r){
 		return l->val > r->val;
@@ -147,8 +149,9 @@ ListNode* mergeLists(vector<ListNode*> &lists){
 	return result;
 }
 ```
+
 #### make_headp方法，可以访问所有元素
-```
+```cpp
 static bool heapComp(ListNode* a, ListNode* b){
 	return a->val > b->val;
 }
