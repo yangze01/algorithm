@@ -28,7 +28,7 @@ private:
             if(reminder < tmpcondidates[i]){
               return;
             }
-            com.push_back(tmpcondidates[i]);
+            com.push_back(tmpcondidates[i]); 
             dfs(com, reminder - tmpcondidates[i], i);
             com.pop_back();
           }
