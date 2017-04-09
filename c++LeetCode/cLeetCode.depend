@@ -5,15 +5,23 @@
 
 1488333278 
 
-1489800872 source:c:\users\john\desktop\algorithm\c++leetcode\main.cpp
+1490788335 source:c:\users\john\desktop\algorithm\c++leetcode\main.cpp
+	<iostream>
+
+1490788335 
+
+1489974971 >
+
+1489974971 source:/media/john/A414FDC314FD990E/Users/john/Desktop/algorithm/c++LeetCode/main.cpp
 	<iostream>
 	<vector>
-	<unordered_map>
 	<algorithm>
+	<iostream>
+	<vector>
+	<algorithm>
+	<stack>
 
-1488718040 >
-
-1488849260 source:/media/john/A414FDC314FD990E/Users/john/Desktop/algorithm/c++LeetCode/main.cpp
+1491728317 source:/media/john/A414FDC314FD990E/Users/john/Desktop/algorithm/c++LeetCode/main.cpp
 	<iostream>
 	<vector>
 	<algorithm>

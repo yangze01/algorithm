@@ -1,65 +1,39 @@
-#include <iostream>
-using namespace std;
-struct ListNode {
-  int val;
-  ListNode *next;
-  ListNode(int x) : val(x), next(NULL) {}
-};
-class Solution {
-public:
-  void travelList(ListNode *head) {
-    ListNode *pNode = head;
-    if (pNode == NULL) {
-      cout << endl;
-    } else {
-      cout << pNode->val;
-      pNode = pNode->next;
-      while (pNode != NULL) {
-        cout << "->" << pNode->val;
-        pNode = pNode->next;
-      }
-    }
-    cout << endl;
-  }
-  ListNode *reverse_List(ListNode *head) {
-    ListNode *res = new ListNode(0);
-    res->next = head;
-    ListNode *pre = res;
-    ListNode *cur = head;
-    while (cur->next != NULL) {
-      ListNode *tmp = pre->next;
-      pre->next = cur->next;
-      cur->next = cur->next->next;
-      pre->next->next = tmp;
-    }
-    return res->next;
-  }
-  ListNode *reverseKGroup(ListNode *head, int k) {
-    ListNode *res = new ListNode(0);
-    res->next = head;
-    head = res;
-    while (head->next != NULL) {
-      head = reverseKNodes(head, k);
-    }
-    return res->next;
-  }
-  ListNode *reverseKNodes(ListNode *head, int k) {}
-};
+#include <stdio.h>
+#include <stdlib.h>
+int main()
+{
+	FILE *sourcefptr,*destfptr;
+	char ch1,ch2,*s;
+	sourcefptr=fopen("p12in.cpp","r");
+	destfptr=fopen("p12out.cpp","w");
+	if(sourcefptr==NULL)
+        printf("can't open the source file.\n");
+    else if(destfptr==NULL)
+        printf("can't open the dest file.\n");
+	else{
+		ch1=fgetc(sourcefptr);
+		while(!feof(sourcefptr)){
+			if(ch1=='/'){
+				ch2=ch1;
+				ch1=fgetc(sourcefptr);
+				if(ch1=='/'||ch1=='*'){
+					fseek(sourcefptr,-2,SEEK_CUR);
+					fgets(s,sizeof(s),sourcefptr);
+					ch1=fgetc(sourcefptr);
+					puts(s);
+				}
+				else{
+					fputc(ch2,destfptr);
+				}
+			}
+			else{
+				fputc(ch1,destfptr);
+				ch1=fgetc(sourcefptr);
+			}
+		}
+	}
+	fclose(sourcefptr);
+	fclose(destfptr);
+	return 0;
+ }
 
-void createList(ListNode *pHead) {
-  ListNode *p = pHead;
-  for (int i = 2; i <= 10; i++) {
-    ListNode *pNewNode = new ListNode(i);
-    p->next = pNewNode;
-    p = pNewNode;
-  }
-}
-
-int main() {
-  Solution solution = Solution();
-  ListNode *head1 = new ListNode(1);
-  createList(head1);
-  solution.travelList(head1);
-  // ListNode* rhead = solution.reverseKNodes(head1,3);
-  // solution.travelList(rhead);
-}
