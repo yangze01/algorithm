@@ -1,4 +1,6 @@
 #include<iostream>
+#include<vector>
+#include<algorithm>
 using namespace std;
 class Solution {
 public:
@@ -16,11 +18,11 @@ private:
     vector<vector<int>> result;
 
     void dfs(vector<int>& com, int reminder, int index){
-        if(index >= len){
-          return;
-        }
         if(reminder == 0){
           result.push_back(com);
+          return;
+        }
+        if(index >= len){
           return;
         }
         else{
@@ -28,7 +30,7 @@ private:
             if(reminder < tmpcondidates[i]){
               return;
             }
-            com.push_back(tmpcondidates[i]); 
+            com.push_back(tmpcondidates[i]);
             dfs(com, reminder - tmpcondidates[i], i);
             com.pop_back();
           }
@@ -37,10 +39,29 @@ private:
 };
 
 
+
 int main(){
-  Solution solution = new Solution()
+  Solution solution = Solution();
   vector<int> candidates = {2, 3, 6, 7};
   int tar = 7;
-  solution.combinationSum(candidates, tar);
 
+  vector<vector<int>> ttt = solution.combinationSum(candidates, tar);
+  cout << "[";
+  for (auto i = ttt.begin(); i != ttt.end(); i++) {
+    cout << "[";
+    vector<int> j = *i;
+    for (auto k = j.begin(); k != j.end(); k++) {
+      if (k == j.end() - 1) {
+        cout << *k;
+      } else {
+        cout << *k << ",";
+      }
+    }
+    if (i == ttt.end() - 1) {
+      cout << "]";
+    } else {
+      cout << "],";
+    }
+  }
+  cout << "]";
 }
