@@ -3,16 +3,16 @@
 	<iostream>
 	<vector>
 
-1488333278 
-
-1490788335 source:c:\users\john\desktop\algorithm\c++leetcode\main.cpp
-	<iostream>
-
 1490788335 
+
+1491915245 source:c:\users\john\desktop\algorithm\c++leetcode\main.cpp
+	<iostream>
+	<vector>
+	<algorithm>
 
 1489974971 >
 
-1489974971 source:/media/john/A414FDC314FD990E/Users/john/Desktop/algorithm/c++LeetCode/main.cpp
+1491728317 source:/media/john/A414FDC314FD990E/Users/john/Desktop/algorithm/c++LeetCode/main.cpp
 	<iostream>
 	<vector>
 	<algorithm>
@@ -20,8 +20,6 @@
 	<vector>
 	<algorithm>
 	<stack>
-
-1491728317 source:/media/john/A414FDC314FD990E/Users/john/Desktop/algorithm/c++LeetCode/main.cpp
 	<iostream>
 	<vector>
 	<algorithm>

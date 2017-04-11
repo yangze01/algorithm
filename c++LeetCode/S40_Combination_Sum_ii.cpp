@@ -1,11 +1,11 @@
-#include<iostream>
-#include<vector>
-#include<algorithm>
+#include <algorithm>
+#include <iostream>
+#include <vector>
 using namespace std;
 
-class Solution{
+class Solution {
 public:
-  vector<vector<int>> combinationSum2(vector<int> &candidates, int target){
+  vector<vector<int>> combinationSum2(vector<int> &candidates, int target) {
     sort(candidates.begin(), candidates.end());
     vector<int> candidate_vector;
     len = candidates.size();
@@ -13,26 +13,26 @@ public:
     dfs(candidate_vector, target, 0);
     return result;
   }
+
 private:
   int len;
   vector<int> tmpcandidate;
   vector<vector<int>> result;
 
-  void dfs(vector<int> &com, int reminder, int index){
-    if(reminder == 0){
+  void dfs(vector<int> &com, int reminder, int index) {
+    if (reminder == 0) {
       result.push_back(com);
       return;
     }
-    if(index >= len){
+    if (index >= len) {
       return;
-    }
-    else{
+    } else {
       int pre = -1;
-      for(int i = index; i < len; i++){
-        if(pre == tmpcandidate[i]){
+      for (int i = index; i < len; i++) {
+        if (pre == tmpcandidate[i]) {
           continue;
         }
-        if(reminder < tmpcandidate[i]){
+        if (reminder < tmpcandidate[i]) {
           return;
         }
         pre = tmpcandidate[i];
@@ -44,9 +44,9 @@ private:
   }
 };
 
-int main(){
+int main() {
   Solution solution = Solution();
-  vector<int> candidates = {10,1,6,7,2,1,5};
+  vector<int> candidates = {10, 1, 6, 7, 2, 1, 5};
   int tar = 8;
   vector<vector<int>> ttt = solution.combinationSum2(candidates, tar);
   cout << "[";
