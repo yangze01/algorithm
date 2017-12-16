@@ -1,0 +1,7 @@
+D:\ClionProjects\algorithm\c++LeetCode\S08_1_String_to_Integer_(atoi).cpp: In member function 'int Solution::myAtoi(std::__cxx11::string)':
+D:\ClionProjects\algorithm\c++LeetCode\S08_1_String_to_Integer_(atoi).cpp:26:44: error: 'INT_MAX' was not declared in this scope
+             if(flag == 1 && res*10.0+digit>INT_MAX)return INT_MAX;
+                                            ^~~~~~~
+D:\ClionProjects\algorithm\c++LeetCode\S08_1_String_to_Integer_(atoi).cpp:27:48: error: 'INT_MIN' was not declared in this scope
+             if(flag == -1 && -(res*10.0+digit)<INT_MIN) return INT_MIN;
+                                                ^~~~~~~

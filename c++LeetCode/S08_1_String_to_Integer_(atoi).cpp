@@ -34,6 +34,6 @@ public:
 int main(){
     Solution solution;
     cout<<solution.myAtoi("2147483648")<<endl;
-    cout<<"INT_MAX:"<<INT_MAX<<endl;
-    cout<<"INT_MIN:"<<INT_MIN<<endl;
+    // cout<<"INT_MAX:"<<INT_MAX<<endl;
+    // cout<<"INT_MIN:"<<INT_MIN<<endl;
 }
