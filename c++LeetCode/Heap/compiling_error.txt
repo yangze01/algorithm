@@ -1,0 +1,16 @@
+D:\ClionProjects\algorithm\c++LeetCode\Heap\S347_topk_num.cpp: In function 'int main()':
+D:\ClionProjects\algorithm\c++LeetCode\Heap\S347_topk_num.cpp:88:13: error: redeclaration of 'Solution3 solution3'
+   Solution3 solution3 = Solution3();
+             ^
+D:\ClionProjects\algorithm\c++LeetCode\Heap\S347_topk_num.cpp:87:13: note: 'Solution3 solution3' previously declared here
+   Solution3 solution3 = Solution3();
+             ^
+D:\ClionProjects\algorithm\c++LeetCode\Heap\S347_topk_num.cpp:89:16: error: 'ret' was not declared in this scope
+   for(auto i = ret.begin(); i != ret.end(); i++){
+                ^
+D:\ClionProjects\algorithm\c++LeetCode\Heap\S347_topk_num.cpp:90:17: error: redeclaration of 'std::vector<int> ret'
+     vector<int> ret = solution.topKFrequent(num, 3);
+                 ^
+D:\ClionProjects\algorithm\c++LeetCode\Heap\S347_topk_num.cpp:89:16: note: '<typeprefixerror>ret' previously declared here
+   for(auto i = ret.begin(); i != ret.end(); i++){
+                ^
