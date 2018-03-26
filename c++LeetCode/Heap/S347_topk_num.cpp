@@ -85,18 +85,20 @@ int main(){
   Solution solution = Solution();
   Solution2 solution2 = Solution2();
   Solution3 solution3 = Solution3();
-  // for(auto i = ret.begin(); i != ret.end(); i++){
-  //   vector<int> ret = solution.topKFrequent(num, 3);
-  //   cout<<*i<<" ";
-  // }
-  // cout<<endl;
-  // vector<int> ret2 = solution2.topKFrequent(num, 3);
-  // for(auto i = ret2.begin(); i!=ret2.end(); i++){
-  //   cout<<*i<<" ";
-  // }
-  // cout<<endl;
+
+  vector<int> ret = solution.topKFrequent(num, 3);
+  for(auto i = ret.begin(); i != ret.end(); i++){
+    cout<<*i<<" ";
+  }
+  cout<<endl;
+  vector<int> ret2 = solution2.topKFrequent(num, 3);
+  for(auto i = ret2.begin(); i!=ret2.end(); i++){
+    cout<<*i<<" ";
+  }
+  cout<<endl;
   vector<int> ret3 = solution3.topKFrequent(num, 3);
   for(auto i = ret3.begin(); i!=ret3.end(); i++){
     cout<<*i<<" ";
   }
+
 }
